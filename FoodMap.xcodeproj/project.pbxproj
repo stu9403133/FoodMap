@@ -6,6 +6,23 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2B7768592F39BCDC003B5251 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 2B7768582F39BCDC003B5251 /* Lottie */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2B7768612F39BECA003B5251 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2B7768492F39BAEA003B5251 /* FoodMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -16,6 +33,11 @@
 			path = FoodMap;
 			sourceTree = "<group>";
 		};
+		2B77685D2F39BE1B003B5251 /* Row */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Row;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -23,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B7768592F39BCDC003B5251 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +55,7 @@
 		2B7768402F39BAEA003B5251 = {
 			isa = PBXGroup;
 			children = (
+				2B77685D2F39BE1B003B5251 /* Row */,
 				2B77684B2F39BAEA003B5251 /* FoodMap */,
 				2B77684A2F39BAEA003B5251 /* Products */,
 			);
@@ -55,6 +79,7 @@
 				2B7768452F39BAEA003B5251 /* Sources */,
 				2B7768462F39BAEA003B5251 /* Frameworks */,
 				2B7768472F39BAEA003B5251 /* Resources */,
+				2B7768612F39BECA003B5251 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -62,9 +87,11 @@
 			);
 			fileSystemSynchronizedGroups = (
 				2B77684B2F39BAEA003B5251 /* FoodMap */,
+				2B77685D2F39BE1B003B5251 /* Row */,
 			);
 			name = FoodMap;
 			packageProductDependencies = (
+				2B7768582F39BCDC003B5251 /* Lottie */,
 			);
 			productName = FoodMap;
 			productReference = 2B7768492F39BAEA003B5251 /* FoodMap.app */;
@@ -94,6 +121,9 @@
 			);
 			mainGroup = 2B7768402F39BAEA003B5251;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2B7768572F39BCDC003B5251 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2B77684A2F39BAEA003B5251 /* Products */;
 			projectDirPath = "";
@@ -261,6 +291,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -293,6 +324,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,6 +364,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2B7768572F39BCDC003B5251 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2B7768582F39BCDC003B5251 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B7768572F39BCDC003B5251 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2B7768412F39BAEA003B5251 /* Project object */;
 }
