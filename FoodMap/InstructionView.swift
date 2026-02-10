@@ -10,7 +10,11 @@ import SwiftUI
 
 struct InstructionView: View {
     @Environment(\.colorScheme) var colorScheme
-
+    @State private var isPressed = false
+    
+    // 接收來自 RootView 的登入狀態綁定
+    @Binding var isUserLoggedIn: Bool
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -75,6 +79,20 @@ struct InstructionView: View {
                                     .background(Color("Primary"))
                                     .cornerRadius(16)
                             }
+                            .scaleEffect(isPressed ? 0.8 : 1.0)
+                            .animation(
+                                .spring(response: 0.3, dampingFraction: 0.6),
+                                value: isPressed
+                            )
+                            .simultaneousGesture(
+                                DragGesture(minimumDistance: 0)
+                                    .onChanged { _ in
+                                        isPressed = true
+                                    }
+                                    .onEnded { _ in
+                                        isPressed = false
+                                    }
+                            )
                             Spacer()
                         }
                     }
@@ -85,5 +103,5 @@ struct InstructionView: View {
 }
 
 #Preview {
-    InstructionView()
+    InstructionView(isUserLoggedIn: .constant(false))
 }

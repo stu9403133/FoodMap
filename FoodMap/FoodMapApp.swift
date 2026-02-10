@@ -11,7 +11,8 @@ import SwiftUI
 struct FoodMapApp: App {
     var body: some Scene {
         WindowGroup {
-            InstructionView()
+//            InstructionView()
+            RootView()
         }
     }
 }
