@@ -52,10 +52,13 @@ struct AuthorityView: View {
             Text(viewModel.errorMessage ?? "未知錯誤")
         }
         // 登入成功後的處理
-        .onChange(of: viewModel.isAuthorized) { isAuthorized in
-            if isAuthorized {
+        .onChange(of: viewModel.isAuthorized, initial: false) { oldValue, newValue in
+            print("Value change oldValue: \(oldValue), newValue: \(newValue)")
+            if newValue {
                 // TODO: 導航到主畫面
-                
+//               .回調內創建 View 無效：在 .onChange 的閉包中直接創建 MainTabView() 不會產生任何效果，這只是創建了一個臨時 View 實例後立即丟棄
+                MainTabView()
+                    .transition(.move(edge: .trailing))
                 print("✅ 已授權，可以導航到主畫面")
             }
         }
@@ -458,3 +461,4 @@ struct AuthorityView: View {
 //#Preview {
 //    AuthorityView(viewModel: AuthorityProcess())
 //}
+
