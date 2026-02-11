@@ -11,12 +11,10 @@ import Foundation
 struct AuthorityModel: Codable {
     var userName: String
     var password: String
-    var isAuthorized: Bool
     
-    init(userName: String = "", password: String = "", isAuthorized: Bool = false) {
+    init(userName: String = "", password: String = "") {
         self.userName = userName
         self.password = password
-        self.isAuthorized = isAuthorized
     }
     
     // 驗證登入資訊

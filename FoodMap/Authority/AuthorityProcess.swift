@@ -13,7 +13,8 @@ import Combine
 class AuthorityProcess: ObservableObject {
     
     // MARK: - Published Properties (供 View 訂閱)
-    
+    // 新增：用於更新全局登入狀態
+    @AppStorage("isUserLoggedIn") private var isUserLoggedIn: Bool = false
     /// Model 資料
     @Published private var model = AuthorityModel()
     
@@ -24,7 +25,6 @@ class AuthorityProcess: ObservableObject {
     
     /// 狀態管理
     @Published var isLoading: Bool = false
-    @Published var isAuthorized: Bool = false
     @Published var errorMessage: String?
     @Published var showError: Bool = false
     
@@ -101,7 +101,6 @@ class AuthorityProcess: ObservableObject {
     
     /// 登出
     func logout() {
-        isAuthorized = false
         if !isRemembered {
             clearCredentials()
         }
@@ -116,15 +115,13 @@ class AuthorityProcess: ObservableObject {
     // MARK: - Private Methods
     
     private func handleLoginSuccess() {
-        isAuthorized = true
-        
+        isUserLoggedIn = true
         // 如果勾選「記住我」，儲存使用者名稱
         if isRemembered {
             saveCredentials()
         }
         
         // 更新 model
-        model.isAuthorized = true
         model.userName = userName
         
         print("✅ 登入成功: \(userName)")
@@ -133,7 +130,6 @@ class AuthorityProcess: ObservableObject {
     private func handleLoginFailure(error: LoginError) {
         errorMessage = error.errorDescription
         showError = true
-        isAuthorized = false
         
         print("❌ 登入失敗: \(error.errorDescription ?? "Unknown error")")
     }
